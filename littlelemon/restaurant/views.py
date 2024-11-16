@@ -16,11 +16,13 @@ def index(request):
 class MenuItemView(ListCreateAPIView):
     queryset = Menu.objects.all()  # Fetch all menu items from the database
     serializer_class = MenuSerializer  # Use the MenuSerializer for data serialization
+    permission_classes = [permissions.IsAuthenticated]
 
 # Handles GET, PUT, and DELETE requests for a single Menu item
 class SingleMenuItemView(RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()  # Fetch all menu items from the database
     serializer_class = MenuSerializer  # Use the MenuSerializer for data serialization
+    permission_classes = [permissions.IsAuthenticated]
 
 
 
